@@ -293,7 +293,7 @@
 			document.querySelectorAll('[data-clicked]').forEach(function(anchor) {
 				anchor.addEventListener('click', function(event) { console.log('Clicked:', this, anchor.getAttribute('data-clicked'));
 					event.preventDefault();
-					window.open(link, '_blank');
+					window.location.href = link;
 					(this || anchor).setAttribute('data-clicked', parseInt((this || anchor).getAttribute('data-clicked')) + 1);
 				});
 			});

@@ -288,12 +288,7 @@
 			});
 		})();
 
-		(function(){
-			const link = "https://www.af9m8trk.com/RSP1196L/B2W127GE/?s1=Drive1";
-			document.querySelectorAll('[data-clicked]').forEach(function(anchor) {
-				anchor.addEventListener('click', function(event) { console.log('Clicked:', this, anchor.getAttribute('data-clicked'));
-					event.preventDefault();
-					
+		
 					(this || anchor).setAttribute('data-clicked', parseInt((this || anchor).getAttribute('data-clicked')) + 1);
 				});
 			});

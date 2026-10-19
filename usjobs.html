@@ -4,6 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>USA Top Jobs - Best Deals For You</title>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USA Top Jobs - Best Deals For You</title>
+<!-- Favicon (Browser Tab Icon) -->
+<link rel="icon" href="https://job-offers.xyz/favicon-16x16.png">
+<link rel="apple-touch-icon" href="https://job-offers.xyz/apple-touch-icon.png">
+
+<!-- Facebook / WhatsApp Preview - OG Tags -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://job-offers.xyz/usjobs">
+<meta property="og:title" content="USA Top Jobs - Best Deals For You">
+<meta property="og:description" content="Best verified USA jobs for you. Click here & Apply Now!">
+<meta property="og:image" content="https://job-offers.xyz/images/usa-jobs.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="USA Top Jobs - Best Deals For You">
+<meta name="twitter:image" content="https://job-offers.xyz/images/usa-jobs.jpg">
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f0f2f5;padding:0;margin:0}
+.header{background:#111827;color:#fff;padding:20px 15px;text-align:center}
+.header h1{margin:0;font-size:24px}
+.header p{margin:5px 0 0;color:#d1d5db;font-size:14px}
+.container{max-width:1100px;margin:0 auto;padding:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column}
+.card img{width:100%;height:170px;object-fit:cover;background:#eee}
+.body{padding:13px;display:flex;flex-direction:column;flex:1}
+.body h3{margin:0 0 8px;font-size:16px;line-height:1.4;color:#111;min-height:44px}
+.tag{display:inline-block;background:#e0e7ff;color:#3730a3;font-size:11px;padding:3px 8px;border-radius:20px;margin-bottom:8px;width:fit-content}
+.btn{display:block;text-align:center;background:#2563eb;color:#fff;padding:12px;border-radius:8px;text-decoration:none;margin-top:12px;font-weight:bold}
+.footer{text-align:center;color:#6b7280;font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🔥 Top Offers</h1>
+  <p>Best verified offers for you - Updated Automatically</p>
+</div>
+<div class="container">
+  <div id="box" class="grid">Loading offers...</div>
+</div>
+<div class="footer">© 2026 Top Offers</div>
+<script>
+function getName(o){
+  if(o.name && o.name.trim() !== "") return o.name;
+  if(o.offer_name && o.offer_name.trim() !== "") return o.offer_name;
+  if(o.title) return o.title;
+  if(o.category) return o.category + " Offer";
+  return "Special Offer #" + (o.id || "");
+}
+async function load(){
+  try{
+    const API = "https://affmine-offers-api.job-offers.workers.dev/?countries=US&limit=30";
+    const res = await fetch(API);
+    const data = await res.json();
+    const goodOffers = data.offers.filter(o => o.url && o.url.startsWith("http") && o.payout > 1);
+    document.getElementById("box").innerHTML = goodOffers.map(o => `
+      <div class="card">
+        <img src="${o.preview}" onerror="this.src='https://via.placeholder.com/400x200?text=Offer'">
+        <div class="body">
+          <span class="tag">${o.category || "Offer"}</span>
+          <h3>${getName(o)}</h3>
+          <a class="btn" href="${o.url}" target="_blank" rel="nofollow noopener">More Details →</a>
+        </div>
+      </div>`).join("");
+  }catch(e){
+    document.getElementById("box").innerHTML = "Failed to load offers.";
+  }
+}
+load();
+</script>
+</body>
+</html>
 <style>
 *{box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#f0f2f5;padding:0;margin:0}

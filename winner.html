@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USA Top Jobs - Best Deals For You</title>
+<title>USA Top Jobs - Winner Offer #24940</title>
 
-<!-- Facebook এ Driver Job এর মতো বড় ছবি আসবে -->
+<!-- Facebook Fix - এটাই 404 ঠিক করবে -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://job-offers.xyz/adblu.html">
+<meta property="og:url" content="https://job-offers.xyz/winner.html">
 <meta property="og:title" content="USA Top Jobs - Best Deals For You">
-<meta property="og:description" content="Best verified USA job - Limited time offer! Apply now.">
+<meta property="og:description" content="Best verified USA job - Offer #24940. Apply now!">
 <meta property="og:image" content="https://job-offers.xyz/images/WhatsApp Image 2026-10-28 at 11.51.48.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,42 +29,34 @@ body{font-family:Arial,sans-serif; background:#f5f7fb; margin:0;}
 
 <div class="header">
 <h1>🇺🇸 USA Top Jobs - Best Deals For You</h1>
-<p>Your exclusive offer is ready</p>
+<p>Your exclusive winner offer is ready</p>
 </div>
 
 <div class="container">
-<div id="offerContainer">Loading Offer #24940...</div>
+<div id="offerContainer">Loading Winner Offer #24940...</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 $(function() {
-    $.getJSON("https://dtvpp42hfuyb2.cloudfront.net/public/offers/feed.php?user_id=812841&api_key=e83d93a75623153b00503147ba2927e0&s1=adblu&s2=fb&callback=?",
+    $.getJSON("https://dtvpp42hfuyb2.cloudfront.net/public/offers/feed.php?user_id=812841&api_key=e83d93a75623153b00503147ba2927e0&s1=winner&s2=fb&callback=?",
         function(offers){
             var html = '';
-            
-            // শুধু Offer ID 24940 ফিল্টার
             var targetId = "24940";
             var filtered = offers.filter(function(o){
-                return o.offer_id == targetId || o.id == targetId || o.offer_id == 24940;
+                return o.offer_id == targetId || o.id == targetId || String(o.offer_id) == "24940";
             });
-
-            // যদি 24940 না পাওয়া যায়, তাহলে প্রথম অফারটা দেখাবে (Backup)
             if(filtered.length === 0){
-                filtered = offers.splice(0, 1);
+                filtered = offers.slice(0,1);
             }
-
             $.each(filtered, function(key, offer){
                 html += '<div>'
-                + '<span class="badge">✅ OFFER #'+targetId+' VERIFIED</span><br><br>'
+                + '<span class="badge">✅ WINNER OFFER #'+targetId+' VERIFIED</span><br><br>'
                 + '<div class="offer-title">'+offer.anchor+'</div><br>'
                 + '<small style="color:#555;">'+offer.conversion+'</small><br>'
                 + '<a class="btn" href="'+offer.url+'" target="_blank">APPLY NOW</a>'
-                + '<p style="margin-top:20px; color:#666; font-size:13px;">Complete this offer to unlock full USA jobs list</p>'
                 + '</div>';
             });
-
-            if(html === '') html = 'Offer #24940 is temporarily unavailable. Please refresh.';
             $("#offerContainer").html(html);
         });
 });

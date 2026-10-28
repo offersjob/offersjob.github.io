@@ -1,0 +1,18 @@
+<div id="offerContainer"></div>
+
+<!--WARNING - THIS IS AN OLD JQUERY VERSION-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.getJSON("https://dtvpp42hfuyb2.cloudfront.net/public/offers/feed.php?user_id=812841&api_key=e83d93a75623153b00503147ba2927e0&s1=&s2=&callback=?",
+			function(offers){
+				var html = '';
+				var numOffers=5; //Change to trim offers. Max is 10.
+				offers=offers.splice(0,numOffers);
+				$.each(offers, function(key, offer){
+					html += '<div><a href="'+offer.url+'" target="_blank" title="'+offer.conversion+'">'+offer.anchor+'</a></div>';
+				});
+				$("#offerContainer").append(html);
+			});
+	});
+</script>
